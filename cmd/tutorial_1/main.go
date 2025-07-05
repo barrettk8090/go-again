@@ -65,15 +65,26 @@ World`
 	printValue := "hellooo world"
 	printMe(printValue)
 
-	var numerator int = 11
+	var numerator int = 10
 	var denominator int = 0
 	var division, remainder, err = intDivision(numerator, denominator)
-	if err != nil {
+	switch {
+	case err != nil:
 		fmt.Print(err.Error())
-	} else if remainder == 0 {
-		fmt.Printf("The result of the integer division is %v", result)
-	} else {
+	case remainder == 0:
+		fmt.Printf("The result of the integer division is %v\n", division)
+	default:
 		fmt.Printf("The result of the integer division is %v with remainder %v\n", division, remainder)
+	}
+
+	// Conditional switch statements
+	switch remainder {
+	case 0:
+		fmt.Printf("The division was exact\n")
+	case 1:
+		fmt.Printf("The division was close\n")
+	default:
+		fmt.Printf("The division was not close\n")
 	}
 
 }
