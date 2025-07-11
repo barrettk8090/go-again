@@ -5,16 +5,21 @@ import "fmt"
 type gasEngine struct {
 	mpg     uint8
 	gallons uint8
-	owner
+	// owner
 }
 
-type owner struct {
-	name string
-}
+// type owner struct {
+// 	name string
+// }
 
 func main() {
 	// var myEngine gasEngine = gasEngine{mpg: 25, gallons: 15}
-	var myEngine gasEngine = gasEngine{25, 15, owner{"Barrett"}}
+	var myEngine gasEngine = gasEngine{25, 15}
 	myEngine.mpg = 20
-	fmt.Println(myEngine.mpg, myEngine.gallons, myEngine.name)
+	// inline, no reusable 
+	var myEngine2 = struct {
+		mpg     uint8
+		gallons uint8
+	}{20, 12}
+	fmt.Println(myEngine.mpg, myEngine.gallons, myEngine2.mpg, myEngine2.gallons)
 }
