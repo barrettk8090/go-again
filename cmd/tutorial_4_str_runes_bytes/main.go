@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
 	var myString = []rune("résumé")
@@ -11,9 +14,14 @@ func main() {
 		fmt.Println(i, v)
 	}
 
-	myRune := 'a'
-	myNewString := "a"
-	fmt.Printf("\n%v, %T", myRune, myRune)
-	fmt.Printf("\n%v, %T", myNewString, myNewString)
+	var strSlice = []string{"s", "t", "r", "i", "n", "g", "y"}
+	var strBuilder strings.Builder
+	for i := range strSlice {
+		strBuilder.WriteString(strSlice[i])
+		fmt.Println(strBuilder)
+	}
+	fmt.Printf("%v, %T", strBuilder, strBuilder)
+	var catStr = strBuilder.String()
+	fmt.Printf("\n%v", catStr)
 
 }
